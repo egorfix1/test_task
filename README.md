@@ -16,7 +16,9 @@
 ## Build
 ```bash
 docker build -t bioinfo-tools:latest .
+```
 
 ## Run
 ```bash
 docker run -it --rm -v "$(pwd)":/mnt/data bioinfo-tools:latest
+```
