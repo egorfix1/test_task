@@ -24,8 +24,8 @@ tail -n +2 FP_SNPs.txt \  #удаляет первую строку с заго�
 Команда для запуска скрипта:
 ```bash
 python3 convert_alleles.py \
-  --input FP_SNPs_10k_GB38_twoAllelsFormat.tsv \
-  --output FP_SNPs_10k_GB38_REF_ALT.tsv \
+  --input /mnt/data/task/FP_SNPs_10k_GB38_twoAllelsFormat.tsv \
+  --output /mnt/data/task/FP_SNPs_10k_GB38_REF_ALT.tsv \
   --reference /ref/GRCh38.d1.vd1_mainChr/sepChrs/
 ```
 Параметры -h или --help выводят справку по аргументам.
