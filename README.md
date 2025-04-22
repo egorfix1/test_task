@@ -22,3 +22,12 @@ docker build -t bioinfo-tools:latest .
 ```bash
 docker run -it --rm -v "$(pwd)":/mnt/data bioinfo-tools:latest
 ```
+# Repository structure
+```bash
+├── Dockerfile                    # Docker image with samtools, htslib, pysam etc.
+├── convert_alleles.py            # python script
+├── FP_SNPs.txt                   # original file from GRAF
+├── FP_SNPs_10k_GB38_twoAllelsFormat.tsv  # pre-prepared file
+├── FP_SNPs_10k_GB38_REF_ALT.tsv          # python script output
+└── FP_SNPs_README.md             # instruction for python script
+```
