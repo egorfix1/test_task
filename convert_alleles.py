@@ -48,7 +48,7 @@ def main(args):
         elif allele2 == ref_base:
             ref, alt = allele2, allele1
         else:
-            logging.warning(f"Ни один аллель не совпадает с референсом: {chrom}:{pos}. Референс={ref_base}, аллели={allele1}/{allele2}.")
+            logging.warning(f"Ни одна аллель не совпадает с референсом: {chrom}:{pos}. Референс={ref_base}, аллели={allele1}/{allele2}.")
             continue
 
         output_data.append({
@@ -65,7 +65,7 @@ def main(args):
     logging.info(f"Результат сохранён в файл: {args.output}.")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Выявление референсного и альтернативного аллеля на основе референсной геномной последовательности.')
+    parser = argparse.ArgumentParser(description='Выявление референсной и альтернативной аллели на основе референсной геномной последовательности.')
     parser.add_argument('--input', required=True, help='входной TSV-файл с колонками: #CHROM, POS, ID, allele1, allele2')
     parser.add_argument('--output', required=True, help='выходной TSV-файл')
     parser.add_argument('--reference', required=True, help='путь к папке с FASTA-файлами всех хромосом (chr[1-22,M,X,Y].fa[.fai])')
