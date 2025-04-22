@@ -16,44 +16,44 @@ ENV SOFT=/soft
 # Создаём папку под софт
 RUN mkdir -p $SOFT
 
-# HTSlib 1.20 (от 30.12.2023)
+# HTSlib 1.21 (от 12.09.2024)
 RUN cd /tmp && \
-    wget https://github.com/samtools/htslib/releases/download/1.20/htslib-1.20.tar.bz2 && \
-    tar -xjf htslib-1.20.tar.bz2 && cd htslib-1.20 && \
-    ./configure --prefix=$SOFT/htslib-1.20 && \
-    make -j$(nproc) && make install && \
-    rm -rf /tmp/htslib-1.20*
+    wget https://github.com/samtools/htslib/releases/download/1.21/htslib-1.21.tar.bz2 && \
+    tar -xjf htslib-1.21.tar.bz2 && cd htslib-1.21 && \
+    ./configure --prefix=$SOFT/htslib-1.21 && \
+    make -j$(nproc) install && \
+    rm -rf /tmp/htslib-1.21*
 
 # Добавляем HTSlib в PATH и переменные окружения
-ENV HTSLIB=/soft/htslib-1.20
+ENV HTSLIB=/soft/htslib-1.21
 ENV PATH=$HTSLIB/bin:$PATH
 ENV LD_LIBRARY_PATH=$HTSLIB/lib
 
-# SAMtools 1.14 (от 05.08.2023)
+# SAMtools 1.21 (от 12.09.2024)
 RUN cd /tmp && \
-    wget https://github.com/samtools/samtools/releases/download/1.14/samtools-1.14.tar.bz2 && \
-    tar -xjf samtools-1.14.tar.bz2 && cd samtools-1.14 && \
-    ./configure --prefix=$SOFT/samtools-1.14 --with-htslib=$SOFT/htslib-1.20 && \
+    wget https://github.com/samtools/samtools/releases/download/1.21/samtools-1.21.tar.bz2 && \
+    tar -xjf samtools-1.21.tar.bz2 && cd samtools-1.21 && \
+    ./configure --prefix=$SOFT/samtools-1.21 --with-htslib=$SOFT/htslib-1.21 && \
     make -j$(nproc) && make install && \
-    rm -rf /tmp/samtools-1.14*
+    rm -rf /tmp/samtools-1.21*
 
 # Переменная SAMTOOLS
-ENV SAMTOOLS=$SOFT/samtools-1.14/bin/samtools \
-    PATH=$SOFT/samtools-1.14/bin:$PATH
+ENV SAMTOOLS=$SOFT/samtools-1.21/bin/samtools \
+    PATH=$SOFT/samtools-1.21/bin:$PATH
 
-# BCFtools 1.14 (от 05.08.2023)
+# BCFtools 1.21 (от 12.09.2024)
 RUN cd /tmp && \
-    wget https://github.com/samtools/bcftools/releases/download/1.14/bcftools-1.14.tar.bz2 && \
-    tar -xjf bcftools-1.14.tar.bz2 && cd bcftools-1.14 && \
-    ./configure --prefix=$SOFT/bcftools-1.14 --with-htslib=$SOFT/htslib-1.20 && \
+    wget https://github.com/samtools/bcftools/releases/download/1.21/bcftools-1.21.tar.bz2 && \
+    tar -xjf bcftools-1.21.tar.bz2 && cd bcftools-1.21 && \
+    ./configure --prefix=$SOFT/bcftools-1.21 --with-htslib=$SOFT/htslib-1.21 && \
     make -j$(nproc) && make install && \
-    rm -rf /tmp/bcftools-1.14*
+    rm -rf /tmp/bcftools-1.21*
 
 # Переменная BCFTOOLS
-ENV BCFTOOLS=$SOFT/bcftools-1.14/bin/bcftools \
-    PATH=$SOFT/bcftools-1.14/bin:$PATH
+ENV BCFTOOLS=$SOFT/bcftools-1.21/bin/bcftools \
+    PATH=$SOFT/bcftools-1.21/bin:$PATH
 
-# libdeflate 1.23 (от 15.12.2024)
+# libdeflate 1.23 (от 16.12.2024)
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         cmake \
@@ -100,4 +100,3 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 COPY convert_alleles.py /usr/local/bin/
 RUN chmod +x /usr/local/bin/convert_alleles.py
-
