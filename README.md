@@ -1,9 +1,9 @@
 # Bioinfo Tools Docker Image
 
 ## Included Software
-- HTSlib 1.20
-- SAMtools 1.14
-- BCFtools 1.14
+- HTSlib 1.21
+- SAMtools 1.21
+- BCFtools 1.21
 - libdeflate 1.23
 - VCFtools 0.1.16
 
