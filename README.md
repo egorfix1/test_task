@@ -29,5 +29,6 @@ docker run -it --rm -v "$(pwd)":/mnt/data bioinfo-tools:latest
 ├── FP_SNPs.txt                   # original file from GRAF
 ├── FP_SNPs_10k_GB38_twoAllelsFormat.tsv  # pre-prepared file
 ├── FP_SNPs_10k_GB38_REF_ALT.tsv          # python script output
+├── script_logs.log               # log file
 └── FP_SNPs_README.md             # instruction for python script
 ```
