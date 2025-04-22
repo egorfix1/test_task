@@ -20,7 +20,7 @@ docker build -t bioinfo-tools:latest .
 
 ## Run
 ```bash
-docker run -it --rm -v /mnt/data/ref/GRCh38.d1.vd1_mainChr/sepChrs/:/ref/GRCh38.d1.vd1_mainChr/sepChrs/:ro -v "$(pwd)":/mnt/data bioinfo-tools:latest bash
+docker run -it --rm -v /mnt/data/ref/GRCh38.d1.vd1_mainChr/sepChrs/:/ref/GRCh38.d1.vd1_mainChr/sepChrs/:ro -v "$(pwd)":/mnt/data/task bioinfo-tools:latest bash
 ```
 # Repository structure
 ```bash
